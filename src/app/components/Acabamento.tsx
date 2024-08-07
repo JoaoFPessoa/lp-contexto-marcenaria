@@ -10,8 +10,8 @@ import AcabamentoOito from "../../../public/Acabamento/acabamento-8.jpg";
 
 export default function Acabamento() {
   return (
-    <div className="flex flex-col items-center w-full py-36 bg-slate-950">
-      <h1 className="underline-animation text-7xl max-w-screen-2xl text-white w-full text-left">
+    <div className="flex flex-col items-center w-full py-28 bg-slate-950">
+      <h1 className="px-[10%] underline-animation text-7xl max-w-screen-2xl text-white w-full text-left">
         Acabamentos
       </h1>
       <div className=" list-effect flex scrollbar overflow-x-scroll items-center justify-center gap-5 transition-all duration-100">

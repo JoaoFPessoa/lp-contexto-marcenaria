@@ -4,7 +4,7 @@ import LogoPreto from "../../../public/Logo-Preto.png";
 
 export default function About() {
   return (
-    <div className="max-w-screen-2xl my-36 flex items-center text-center justify-between">
+    <div className="px-[10%] my-36 flex items-center text-center justify-between">
       <div className="w-1/2">
         <h1 className="underline-animation items-center flex text-primary leading-tight text-7xl">
           Contexto Marcenaria

@@ -84,7 +84,7 @@ export default function MeetUs() {
 
   return (
     <div className="my-36 w-full max-w-screen-2xl">
-      <h1 className="text-7xl">Conheça nosso time</h1>
+      <h1 className="text-7xl px-[10%]">Conheça nosso time</h1>
       <div
         ref={sliderRef}
         className="relative mt-8 flex gap-4 overflow-hidden"
