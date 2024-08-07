@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutTwo from "../../../public/About/about-two.jpg";
+import AboutTwo from "/public/About/about-two.jpg";
 import LogoPreto from "../../../public/Logo-Preto.png";
 
 export default function About() {
