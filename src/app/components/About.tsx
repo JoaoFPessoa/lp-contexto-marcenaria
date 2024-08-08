@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div className="px-[10%] my-36 flex items-center text-center justify-between">
       <div className="w-1/2">
-        <h1 className="underline-animation items-center flex text-primary leading-tight text-7xl">
+        <h1 className="black-underline-animation items-center flex text-primary leading-tight text-7xl">
           Contexto Marcenaria
           <Image
             src={LogoPreto}

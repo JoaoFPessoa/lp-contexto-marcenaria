@@ -12,25 +12,25 @@ export default function Header() {
 
       <nav className="flex gap-24 text-3xl  font-semibold text-white">
         <Link
-          className="underline-animation transition-transform duration-300 hover:scale-110"
+          className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/"
         >
           Início
         </Link>
         <Link
-          className="underline-animation transition-transform duration-300 hover:scale-110"
+          className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/projects"
         >
           Projetos
         </Link>
         <Link
-          className="underline-animation transition-transform duration-300 hover:scale-110"
+          className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/about"
         >
           Sobre
         </Link>
         <Link
-          className="underline-animation transition-transform duration-300 hover:scale-110"
+          className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/"
         >
           Arquitetos

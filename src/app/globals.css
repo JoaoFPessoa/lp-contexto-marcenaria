@@ -17,7 +17,7 @@
   }
 
   /* ANIMAÇÃO DE UNDERLINE NOS TÍTULOS */
-  .underline-animation {
+  .black-underline-animation {
     position: relative;
 
     &:hover,
@@ -35,6 +35,29 @@
       bottom: -3px;
       height: 3px;
       background-color: #000;
+      width: 0;
+      transition: width 0.4s;
+    }
+  }
+
+  .white-underline-animation {
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      height: 3px;
+      background-color: #fff;
       width: 0;
       transition: width 0.4s;
     }
