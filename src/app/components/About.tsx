@@ -1,4 +1,4 @@
-import AboutTwo from "../../../public/About/about-two.jpg";
+import AboutTwo from "../../../public/about-two.jpg";
 import LogoPreto from "../../../public/Logo-Preto.png";
 import Image from "next/image";
 
