@@ -1,4 +1,4 @@
-// import AboutTwo from "/public/About/about-two.jpg";
+import AboutTwo from "../../../public/About/about-two.jpg";
 import LogoPreto from "../../../public/Logo-Preto.png";
 import Image from "next/image";
 
@@ -23,13 +23,7 @@ export default function About() {
           são essenciais.
         </p>
       </div>
-      {/* <Image
-        src={AboutTwo}
-        alt=""
-        height={300}
-        loading="lazy"
-        className="w-1/4"
-      /> */}
+      <Image src={AboutTwo} alt="" height={300} className="w-1/4" />
     </div>
   );
 }
