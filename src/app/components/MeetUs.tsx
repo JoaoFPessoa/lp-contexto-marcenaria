@@ -51,7 +51,7 @@ const employees = [
 export default function MeetUs() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const startSlide = () => {
     intervalRef.current = setInterval(() => {
@@ -62,7 +62,10 @@ export default function MeetUs() {
   };
 
   const stopSlide = () => {
-    clearInterval(intervalRef.current);
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null; // Clear the ref after stopping the interval
+    }
   };
 
   useEffect(() => {
