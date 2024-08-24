@@ -9,7 +9,7 @@ import Acabamento from "./components/Acabamento";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex overflow-x-hidden flex-col items-center">
       <Header />
       <Banner />
       <About />
