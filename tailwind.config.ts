@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         primary: "hsl(var(--primary))",
       },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)",
+      },
     },
   },
   plugins: [],

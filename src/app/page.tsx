@@ -9,13 +9,13 @@ import Acabamento from "./components/Acabamento";
 
 export default function Home() {
   return (
-    <div className="flex overflow-x-hidden flex-col items-center">
+    <div className="bg-custom-gradient flex overflow-x-hidden flex-col items-center">
       <Header />
       <Banner />
       <About />
+      <MeetUs />
       <WorkProgress />
       <Projects />
-      <MeetUs />
       <Acabamento />
     </div>
   );
