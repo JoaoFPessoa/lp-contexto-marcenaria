@@ -1,11 +1,18 @@
+"use client";
 import AboutTwo from "../../../public/about-two.jpg";
 import LogoPreto from "../../../public/Logo-Preto.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import AnimatedLeftDiv from "./ui/LeftDiv";
+import AnimatedRightDiv from "./ui/RightDiv";
 
 export default function About() {
+  const containerRef = useRef<HTMLDivElement>(null); // Create a RefObject
+
   return (
-    <div className="px-[10%] my-36 flex items-center text-center justify-between">
-      <div className="w-1/2">
+    <div className="px-[10%]  my-36 flex items-center text-center justify-between">
+      <AnimatedLeftDiv ref={containerRef} className="w-1/2">
         <h1 className="black-underline-animation items-center flex text-primary leading-tight text-7xl">
           Contexto Marcenaria
           <Image
@@ -22,8 +29,14 @@ export default function About() {
           que a coletividade, o elo entre projeto e execução e o toque humano
           são essenciais.
         </p>
-      </div>
-      <Image src={AboutTwo} alt="" height={300} className="w-1/4" />
+      </AnimatedLeftDiv>
+
+      <AnimatedRightDiv
+        ref={containerRef}
+        className="w-1/2  h-full flex items-center justify-center"
+      >
+        <Image src={AboutTwo} alt="" height={600} />
+      </AnimatedRightDiv>
     </div>
   );
 }

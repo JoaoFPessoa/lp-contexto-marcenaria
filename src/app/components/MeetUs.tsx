@@ -58,7 +58,7 @@ export default function MeetUs() {
       setCurrentIndex((prevIndex) =>
         prevIndex === employees.length - 3 ? 0 : prevIndex + 1
       );
-    }, 2000);
+    }, 2500);
   };
 
   const stopSlide = () => {
@@ -87,7 +87,7 @@ export default function MeetUs() {
 
   return (
     <div className="my-36 w-full max-w-screen-2xl">
-      <h1 className="text-7xl px-[10%]">Conheça nosso time</h1>
+      <h1 className="text-6xl">Conheça nosso time</h1>
       <div
         ref={sliderRef}
         className="relative mt-8 flex gap-4 overflow-hidden"
@@ -101,7 +101,7 @@ export default function MeetUs() {
           Prev
         </ArrowLeftCircle>
         <div
-          className="flex w-full gap-8 transition-transform duration-500"
+          className=" flex w-full gap-8 transition-transform duration-1000"
           style={{ transform: `translateX(-${(currentIndex * 100) / 3}%)` }}
         >
           {employees.map((employee, index) => (
@@ -113,7 +113,7 @@ export default function MeetUs() {
             >
               <div className="w-full h-[500px] relative">
                 <Image
-                  className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-125 "
+                  className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-125 "
                   src={employee.src}
                   alt={employee.alt}
                   layout="fill"
