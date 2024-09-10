@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="absolute top-0 w-full flex justify-between items-center px-[10%] bg-transparent  ">
+    <div className="absolute z-10 top-0 w-full flex justify-between items-center px-[10%] bg-transparent  ">
       <div className="absolute inset-0 bg-black opacity-20"></div>
       <Link href={"/"}>
         <Image src={Logo} width={80} alt="contexto-logo" />
