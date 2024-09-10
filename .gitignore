@@ -6,6 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 
+/public/Banner_Video.MP4
 # testing
 /coverage
 

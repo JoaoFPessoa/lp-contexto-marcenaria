@@ -40,9 +40,9 @@ export default function WorkProgressCard({
               {title}
             </h1>
           </div>
-          <div className="text-xl w-1/2 text-primary/70 text-center ">
+          {/* <div className="text-xl w-1/2 text-primary/70 text-center ">
             {description}
-          </div>
+          </div> */}
         </motion.div>
       )}
     </div>

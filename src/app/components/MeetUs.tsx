@@ -87,7 +87,7 @@ export default function MeetUs() {
 
   return (
     <div className="my-36 w-full max-w-screen-2xl">
-      <h1 className="text-6xl">Conheça nosso time</h1>
+      <h1 className="text-6xl">dia a dia</h1>
       <div
         ref={sliderRef}
         className="relative mt-8 flex gap-4 overflow-hidden"
@@ -118,11 +118,11 @@ export default function MeetUs() {
                   alt={employee.alt}
                   layout="fill"
                 />
-                <div className="p-4 text-white bottom-0 w-full h-[30%] absolute z-50  text-center">
+                {/* <div className="p-4 text-white bottom-0 w-full h-[30%] absolute z-50  text-center">
                   <div className="absolute inset-0 bg-black -z-10 opacity-20"></div>
                   <h2 className="text-3xl font-bold">{employee.title}</h2>
                   <p className="text-white/80">{employee.description}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

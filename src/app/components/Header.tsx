@@ -10,30 +10,30 @@ export default function Header() {
         <Image src={Logo} width={80} alt="contexto-logo" />
       </Link>
 
-      <nav className="flex gap-24 text-3xl  font-semibold text-white">
+      <nav className="flex gap-24 text-xl  font-semibold text-white">
         <Link
           className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/"
         >
-          Início
+          início
         </Link>
         <Link
           className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/projects"
         >
-          Projetos
+          projetos
         </Link>
         <Link
           className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/about"
         >
-          Sobre
+          sobre
         </Link>
         <Link
           className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/"
         >
-          Arquitetos
+          arquitetos
         </Link>
       </nav>
     </div>
