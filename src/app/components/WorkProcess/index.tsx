@@ -19,7 +19,7 @@ export default function WorkProgress() {
         "neste etapa nós assinamos contrato, efetuamos pagamento e daremos início na produção...",
     },
     {
-      title: "nedição",
+      title: "medição",
       description:
         "para iniciarmos a produção da sua marcenaria, precisamos confirmar todos os detalhes...",
     },

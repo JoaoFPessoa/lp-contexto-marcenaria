@@ -19,7 +19,7 @@ export default function WorkProgressCard({
     <div
       ref={ref}
       className={cn(
-        "h-[300px] items-center justify-around  flex flex-col",
+        "h-[200px] items-center justify-around  flex flex-col",
         Number(index) % 2 === 0 ? "ml-[50%]" : "mr-[50%]"
       )}
     >
