@@ -3,7 +3,7 @@ export default function Banner() {
     <div className="w-full h-[95vh] parallax relative">
       <video
         className="w-full h-full object-cover"
-        src="/Banner_Video.mp4"
+        src="/Banner_Video.MOV"
         autoPlay
         loop
         muted
