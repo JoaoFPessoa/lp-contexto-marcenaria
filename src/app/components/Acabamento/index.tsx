@@ -34,7 +34,7 @@ const effectWord = `a c a b a m e n t o s`;
 
 export default function Acabamento() {
   return (
-    <div className="flex max-w-screen-2xl flex-col items-center w-full py-28 ">
+    <div className="flex  flex-col items-center w-full py-28 ">
       <h1 className="text-6xl text-primary w-full items-center justify-center gap-3 flex">
         <TextGenerateEffect words={effectWord} />
       </h1>
