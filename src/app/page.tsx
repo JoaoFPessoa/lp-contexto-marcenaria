@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div className="bg-custom-gradient flex overflow-x-hidden flex-col items-center">
-      <Header />
+      <Header isHomePage={true} />
       <Banner />
       <About />
       <MeetUs />

@@ -1,16 +1,33 @@
 import Image from "next/image";
 import Logo from "../../../public/Header/Logo-Branco.png";
+import BlackLogo from "../../../public/Logo-Preto.png";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 
-export default function Header() {
+export default function Header({ isHomePage }: { isHomePage?: boolean }) {
   return (
     <div className="absolute z-10 top-0 w-full flex justify-between items-center px-[10%] bg-transparent  ">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div
+        className={cn(
+          `absolute inset-0" ${isHomePage && "bg-black opacity-30`"}`
+        )}
+      ></div>
       <Link href={"/"}>
-        <Image src={Logo} width={80} alt="contexto-logo" />
+        <Image
+          src={isHomePage ? Logo : BlackLogo}
+          width={70}
+          className={cn("w-[60px]", !isHomePage && "pt-2")}
+          alt="contexto-logo"
+        />
       </Link>
 
-      <nav className="flex gap-24 text-xl  font-semibold text-white">
+      <nav
+        className={cn(
+          `flex gap-24 text-xl  font-semibold text-black ${
+            isHomePage && "text-white"
+          }`
+        )}
+      >
         <Link
           className="black-underline-animation transition-transform duration-300 hover:scale-110"
           href="/"
