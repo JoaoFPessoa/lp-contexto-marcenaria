@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ImageContainer from "./ImageContainer";
 
@@ -44,7 +45,7 @@ export default function Projects() {
         nossos projetos.
       </h1>
 
-      <div className="gallery-grid w-full mt-36">
+      <div className="gallery-grid w-full my-36">
         {images.map((img, index) => {
           const columnSpan = Math.floor(Math.random() * 5) + 1;
 
@@ -60,6 +61,7 @@ export default function Projects() {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }
