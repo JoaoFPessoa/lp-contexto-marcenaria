@@ -6,34 +6,42 @@ const images = [
   {
     src: "https://picsum.photos/seed/1/400/600",
     alt: "Random Image 1",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/2/500/700",
     alt: "Random Image 2",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/3/600/800",
     alt: "Random Image 3",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/4/450/650",
     alt: "Random Image 4",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/5/550/750",
     alt: "Random Image 5",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/6/500/600",
     alt: "Random Image 6",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/7/700/900",
     alt: "Random Image 7",
+    title: "Title Test",
   },
   {
     src: "https://picsum.photos/seed/8/400/500",
     alt: "Random Image 8",
+    title: "Title Test",
   },
 ];
 
@@ -41,8 +49,8 @@ export default function Projects() {
   return (
     <div className="bg-custom-gradient min-h-[100vh] flex overflow-x-hidden flex-col items-center">
       <Header />
-      <h1 className=" text-center text-2xl font-bold mt-32 w-full">
-        nossos projetos.
+      <h1 className=" text-center text-4xl font-bold mt-32 w-full">
+        nossos projetos
       </h1>
 
       <div className="gallery-grid w-full my-36">
