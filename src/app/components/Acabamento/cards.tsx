@@ -25,7 +25,7 @@ export const Card = React.memo(
     >
       <Image
         src={card.src}
-        alt={card.title}
+        alt={card.title || card.src}
         fill
         className="object-cover absolute inset-0"
       />
@@ -35,9 +35,11 @@ export const Card = React.memo(
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
-          {card.title}
-        </div>
+        {card.title && (
+          <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
+            {card.title}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -46,18 +48,18 @@ export const Card = React.memo(
 Card.displayName = "Card";
 
 type Card = {
-  title: string;
+  title?: string;
   src: string;
 };
 
 export function FocusCards({ cards }: { cards: Card[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
-
+  console.log(cards);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-12 mx-auto md:px-8 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-12  w-full">
       {cards.map((card, index) => (
         <Card
-          key={card.title}
+          key={card.title || card.src}
           card={card}
           index={index}
           hovered={hovered}

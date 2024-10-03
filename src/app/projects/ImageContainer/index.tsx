@@ -1,10 +1,15 @@
+"use client";
 // ImageContainer.tsx
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface ImageProps {
+  id: string;
   src: string;
   alt: string;
   title: string;
+  description: string;
+  projectImages: string[];
 }
 
 interface Props {
@@ -12,8 +17,17 @@ interface Props {
 }
 
 const ImageContainer = ({ img }: Props) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    console.log("caiu no handle");
+    router.push(`/projects/${img.id}`);
+  };
   return (
-    <div className="relative overflow-hidden group cursor-pointer">
+    <div
+      onClick={handleClick}
+      className="relative overflow-hidden group cursor-pointer"
+    >
       {" "}
       {/* Make the container relative for absolute positioning */}
       <Image

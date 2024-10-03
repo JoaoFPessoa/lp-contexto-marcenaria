@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { FocusCards } from "./cards";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 
