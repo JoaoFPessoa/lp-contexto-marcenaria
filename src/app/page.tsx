@@ -1,8 +1,6 @@
 import Header from "./components/Header";
 import Banner from "./components/Banner";
-import Head from "next/head";
 import About from "./components/About";
-import WorkProgress from "./components/WorkProcess";
 import Projects from "./components/Projects";
 import MeetUs from "./components/MeetUs";
 import Acabamento from "./components/Acabamento";
@@ -10,12 +8,12 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-custom-gradient flex overflow-x-hidden flex-col items-center">
+    <div className="bg-custom-gradient flex overflow-hidden flex-col items-center">
       <Header isHomePage={true} />
       <Banner />
       <About />
       <MeetUs />
-      <WorkProgress />
+      {/* <WorkProgress /> */}
       <Projects />
       <Acabamento />
       <script

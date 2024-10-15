@@ -108,7 +108,7 @@ export default function MeetUs() {
             <div
               key={index}
               className={`w-1/3 flex-shrink-0 overflow-hidden ${
-                index !== currentIndex + 1 ? "brightness-50" : ""
+                index !== currentIndex + 1 ? "brightness-[0.75]" : ""
               }`}
             >
               <div className="w-full h-[500px] relative">

@@ -23,7 +23,7 @@ export default function Header({ isHomePage }: { isHomePage?: boolean }) {
 
       <nav
         className={cn(
-          `flex gap-24 text-xl  font-semibold text-black ${
+          `flex gap-24 text-2xl font-light text-black ${
             isHomePage && "text-white"
           }`
         )}
