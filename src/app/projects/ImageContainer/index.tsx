@@ -26,7 +26,7 @@ const ImageContainer = ({ img }: Props) => {
   return (
     <div
       onClick={handleClick}
-      className="relative overflow-hidden group cursor-pointer"
+      className="relative overflow-hidden max-w-[600px]  group cursor-pointer"
     >
       {" "}
       {/* Make the container relative for absolute positioning */}
@@ -36,7 +36,7 @@ const ImageContainer = ({ img }: Props) => {
         layout="responsive"
         width={1}
         height={1}
-        className="rounded-lg object-cover transition duration-300 ease-in-out group-hover:grayscale" // Add transition and grayscale effect on hover
+        className=" rounded-lg    object-cover transition duration-300 ease-in-out group-hover:grayscale" // Add transition and grayscale effect on hover
       />
       <div className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
         {" "}
