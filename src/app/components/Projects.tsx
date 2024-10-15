@@ -1,6 +1,6 @@
 export default function Projects() {
   return (
-    <div className="relative h-[800px] w-full">
+    <div className="relative h-[900px] mt-24 w-full">
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="parallax bg-[url('/Projects/kitchen-lp.jpg')] h-full w-full"></div>
       <div className="absolute inset-0 flex items-center  justify-center">

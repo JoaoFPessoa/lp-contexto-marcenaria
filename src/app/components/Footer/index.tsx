@@ -11,10 +11,10 @@ import Tiktok from "../../../../public/SocialMedia/tiktok.svg";
 export default function Footer() {
   return (
     <div
-      className="relative h-[600px] w-full  "
+      className="relative h-[400px]  w-full  "
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed  h-[600px] w-full bottom-0">
+      <div className="fixed  h-[400px] w-full bottom-0">
         <div className="flex bg-[#D1B7A1] justify-between items-center  p-24 w-full h-full">
           <div className="w-1/4 border-r-2 border-white ">
             <nav className="flex w-fit text-lg flex-col gap-2  font-semibold text-white">
@@ -45,7 +45,7 @@ export default function Footer() {
             </nav>
           </div>
           <div className="w-3/4 flex items-center justify-center ">
-            <Image src={Logo} className="w-[70%]" alt="logo" />
+            <Image src={Logo} className="w-[20%] " alt="logo" />
           </div>
           <div className="grid grid-cols-3  gap-4 w-1/6">
             <a target="_blank" href="https://wa.me/message/2AOLK4P6HY3ZI1">
