@@ -1,11 +1,12 @@
 "use client";
-// pages/project/[id].tsx
+import SkeletonGrid from "@/app/admin/components/skeletonGrid";
 import { FocusCards } from "@/app/components/Acabamento/cards";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { supabase } from "../../../../supabase";
 
 interface ProjectData {
   id: string;
@@ -20,43 +21,80 @@ const ProjectDetails = () => {
   const id = params.id;
 
   const [project, setProject] = useState<ProjectData | null>(null);
+  const [loading, setLoading] = useState(true); // For handling loading state
+
+  async function getProjectData() {
+    try {
+      // 1. Fetch project data from 'projects' table
+      const { data: projectData, error: projectError } = await supabase
+        .from("projects")
+        .select("*")
+        .eq("id", id)
+        .single(); // Assuming there's a single project with this ID
+
+      if (projectError) {
+        console.error("Error fetching project:", projectError);
+        setLoading(false);
+        return;
+      }
+
+      // 2. Fetch project images from 'project_images' table
+      const { data: imagesData, error: imagesError } = await supabase
+        .from("project_images")
+        .select("image_url")
+        .eq("project_id", id);
+
+      if (imagesError) {
+        console.error("Error fetching project images:", imagesError);
+        setLoading(false);
+        return;
+      }
+
+      // 3. Get the public URL for the main image and project images
+      const mainImage = projectData.main_image
+        ? supabase.storage
+            .from("bucket-project-images")
+            .getPublicUrl(projectData.main_image).data.publicUrl
+        : "";
+
+      const projectImages = imagesData.map((img: { image_url: string }) => ({
+        src: supabase.storage
+          .from("bucket-project-images")
+          .getPublicUrl(img.image_url).data.publicUrl,
+      }));
+
+      // 4. Set the project data including the images
+      setProject({
+        id: projectData.id,
+        title: projectData.title,
+        description: projectData.description,
+        mainImage,
+        projectImages,
+      });
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching project data:", error);
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    if (id) {
-      const fetchProjectData = async () => {
-        const mockData: ProjectData = {
-          id: id as string,
-          title: "Sample Project Title",
-          mainImage: "https://picsum.photos/id/237/200/300",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          projectImages: [
-            { src: "https://picsum.photos/seed/1/400/100" },
-            { src: "https://picsum.photos/seed/1/400/200" },
-            { src: "https://picsum.photos/seed/1/400/300" },
-            { src: "https://picsum.photos/seed/1/400/400" },
-            { src: "https://picsum.photos/seed/1/400/600" },
-            { src: "https://picsum.photos/seed/8/400/500" },
-            { src: "https://picsum.photos/seed/1/400/700" },
-            { src: "https://picsum.photos/seed/1/400/800" },
-            { src: "https://picsum.photos/seed/1/400/900" },
-          ],
-        };
-        setProject(mockData);
-      };
-      fetchProjectData();
-    }
+    getProjectData();
   }, [id]);
 
+  if (loading) {
+    return <SkeletonGrid />;
+  }
+
   if (!project) {
-    return <div>Carregando</div>;
+    return <div>Project not found</div>;
   }
 
   return (
     <div>
       <Header />
-      <section className="p-4 my-32">
-        <div className="flex mb-64 items-center  h-[600px] w-full justify-between">
+      <section className="p-4 my-32 px-[10%]">
+        <div className="flex mb-64 items-center h-[600px] w-full justify-between">
           <div className="">
             <h1 className="w-fit text-5xl font-bold mb-4 black-underline-animation transition-transform duration-300 ">
               {project.title}
@@ -66,9 +104,9 @@ const ProjectDetails = () => {
             </p>
           </div>
 
-          <div className="w-[50%]">
-            <Image
-              src={"/Projects/kitchen-lp.jpg"}
+          <div className="w-[50%] h-[90%]">
+            <img
+              src={project.mainImage}
               className="w-full h-full object-contain"
               alt="main-image"
               width={10000}

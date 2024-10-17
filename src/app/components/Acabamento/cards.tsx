@@ -23,10 +23,9 @@ export const Card = React.memo(
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
-      <Image
+      <img
         src={card.src}
         alt={card.title || card.src}
-        fill
         className="object-cover absolute inset-0"
       />
       <div
