@@ -3,7 +3,7 @@ import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { supabase, updateProject } from "../../../../supabase";
 import toast from "react-hot-toast";
-import { Project } from "../page";
+import { Project } from "./Project";
 
 interface EditProjectModalProps {
   project: Project;

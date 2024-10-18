@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { Project } from "../page";
+import { Project } from "./Project";
 
 const ImageDragDrop = ({ project }: { project: Project }) => {
   const [images, setImages] = useState(project.images);
