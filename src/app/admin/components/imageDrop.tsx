@@ -6,7 +6,7 @@ import { Project } from "./Project";
 const ImageDragDrop = ({ project }: { project: Project }) => {
   const [images, setImages] = useState(project.images);
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result: any) => {
     if (!result.destination) {
       return;
     }

@@ -112,6 +112,7 @@ const ProjectDetails = () => {
               alt="main-image"
               width={10000}
               height={10000}
+              loading="lazy"
             />
           </div>
         </div>
