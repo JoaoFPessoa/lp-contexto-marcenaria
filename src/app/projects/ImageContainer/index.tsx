@@ -27,7 +27,7 @@ const ImageContainer = ({ project }: Props) => {
           alt={project.title}
           width={1}
           height={1}
-          loading="lazy" // Lazy load the image
+          loading="lazy"
           className=" rounded-lg  w-[300px] h-[300px]   object-cover transition duration-300 ease-in-out group-hover:grayscale" // Add transition and grayscale effect on hover
         />
       )}

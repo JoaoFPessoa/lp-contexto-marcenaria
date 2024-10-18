@@ -32,7 +32,7 @@ export default function MeetUs() {
       setCurrentIndex((prevIndex) =>
         prevIndex === dailys.length - 3 ? 0 : prevIndex + 1
       );
-    }, 2500);
+    }, 2000);
   };
 
   const stopSlide = () => {

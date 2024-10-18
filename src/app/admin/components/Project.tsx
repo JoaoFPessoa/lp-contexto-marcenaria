@@ -131,7 +131,7 @@ export default function ProjectPage() {
 
       <div className="flex gap-2">
         <button
-          className="my-6 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+          className="my-6 bg-blue-950 text-white py-2 px-4 rounded-lg hover:bg-blue-900"
           onClick={() => setAddModalOpen(true)}
         >
           Add Projeto
