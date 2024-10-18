@@ -8,12 +8,11 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-custom-gradient flex overflow-hidden flex-col items-center">
+    <div className="bg-custom-gradient min-h-[100vh] min-w-[100vw] flex overflow-hidden flex-col items-center">
       <Header isHomePage={true} />
       <Banner />
       <About />
       <MeetUs />
-      {/* <WorkProgress /> */}
       <Projects />
       <Acabamento />
       <script

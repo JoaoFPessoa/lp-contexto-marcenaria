@@ -16,6 +16,26 @@ export default function MeetUs() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const imagesOnScreen = isMobile ? 1 : 3;
+
+  useEffect(() => {
+    // Function to update the `isMobile` state based on the screen width
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Assuming 768px as the mobile breakpoint
+    };
+
+    // Add event listener to monitor window resize
+    window.addEventListener("resize", handleResize);
+
+    // Initial check
+    handleResize();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   async function getData() {
     const response = await fetchDailys();
@@ -30,7 +50,7 @@ export default function MeetUs() {
   const startSlide = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === dailys.length - 3 ? 0 : prevIndex + 1
+        prevIndex === dailys.length - imagesOnScreen ? 0 : prevIndex + 1
       );
     }, 2000);
   };
@@ -49,22 +69,22 @@ export default function MeetUs() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === dailys.length - 3 ? 0 : prevIndex + 1
+      prevIndex === dailys.length - imagesOnScreen ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? dailys.length - 3 : prevIndex - 1
+      prevIndex === 0 ? dailys.length - imagesOnScreen : prevIndex - 1
     );
   };
 
   return (
-    <div className="my-36 w-full max-w-screen-2xl">
-      <h1 className="text-6xl">dia a dia</h1>
+    <div className="my-12 lg:my-36 w-full max-w-screen-2xl">
+      <h1 className="px-2 text-center lg:text-left text-5xl">dia a dia</h1>
       <div
         ref={sliderRef}
-        className="relative mt-8 flex gap-4 overflow-hidden"
+        className="relative mt-4 lg:mt-8 flex gap-4 overflow-hidden"
         onMouseEnter={stopSlide}
         onMouseLeave={startSlide}
       >
@@ -75,17 +95,21 @@ export default function MeetUs() {
           Prev
         </ArrowLeftCircle>
         <div
-          className=" flex w-full gap-8 transition-transform duration-1000"
-          style={{ transform: `translateX(-${(currentIndex * 100) / 3}%)` }}
+          className=" flex  gap-1 lg:gap-8 transition-transform duration-1000"
+          style={{
+            transform: `translateX(-${
+              isMobile ? currentIndex * 91 : (currentIndex * 100) / 3
+            }%)`,
+          }}
         >
           {dailys.map((daily, index) => (
             <div
               key={index}
-              className={`w-1/3 flex-shrink-0 overflow-hidden ${
+              className={`w-[90%] lg:w-1/3 flex-shrink-0 overflow-hidden ${
                 index !== currentIndex + 1 ? "brightness-[0.75]" : ""
               }`}
             >
-              <div className="w-full h-[500px] relative">
+              <div className="w-full h-[350px] lg:h-[500px] relative">
                 {daily.isVideo ? (
                   <video
                     src={daily.public_url}
@@ -108,7 +132,7 @@ export default function MeetUs() {
         </div>
         <ArrowRightCircle
           onClick={nextSlide}
-          className="absolute top-[45%] cursor-pointer right-2 z-10 text-white"
+          className="absolute top-[45%] cursor-pointer right-6 lg:right-2 z-10 text-white"
         >
           Next
         </ArrowRightCircle>

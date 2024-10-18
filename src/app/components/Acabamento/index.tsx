@@ -4,8 +4,6 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { useEffect, useState } from "react";
 import { fetchAcabamentos } from "../../../../supabase";
 
-const effectWord = `a c a b a m e n t o s`;
-
 export default function Acabamento() {
   const [cards, setCards] = useState([]);
   async function getData() {
@@ -18,8 +16,8 @@ export default function Acabamento() {
   }, []);
   return (
     <div className="flex px-[10%]  flex-col items-center w-full py-28 ">
-      <h1 className="text-6xl text-primary w-full items-center justify-center gap-3 flex">
-        <TextGenerateEffect words={effectWord} />
+      <h1 className="text-3xl lg:text-6xl text-primary w-full items-center justify-center gap-3 flex">
+        acabamentos
       </h1>
       <FocusCards cards={cards} />
     </div>

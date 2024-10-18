@@ -95,7 +95,7 @@ const ProjectDetails = () => {
     <div>
       <Header />
       <section className="p-4 my-32 px-[10%]">
-        <div className="flex mb-64 items-center h-[600px] w-full justify-between">
+        <div className="flex flex-col lg:flex-row mt-36 lg:mt-0 mb-64 items-center h-[600px] w-full justify-between">
           <div className="">
             <h1 className="w-fit text-5xl font-bold mb-4 black-underline-animation transition-transform duration-300 ">
               {project.title}
@@ -105,7 +105,7 @@ const ProjectDetails = () => {
             </p>
           </div>
 
-          <div className="w-[50%] h-[90%]">
+          <div className="w-full lg:w-[50%] h-[90%]">
             <img
               src={project.mainImage}
               className="w-full h-full object-contain"

@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 
 export default function Header({ isHomePage }: { isHomePage?: boolean }) {
   return (
-    <div className="absolute z-10 top-0 w-full flex justify-between items-center px-[10%] bg-transparent  ">
+    <div className="absolute z-10 top-0 w-full flex justify-between items-center px-[4%] text-center lg:text-left lg:px-[10%] bg-transparent  ">
       <div
         className={cn(
           `absolute inset-0" ${isHomePage && "bg-black opacity-30`"}`
@@ -23,7 +23,7 @@ export default function Header({ isHomePage }: { isHomePage?: boolean }) {
 
       <nav
         className={cn(
-          `flex gap-24 text-2xl font-light text-black ${
+          `flex flex-col lg:flex-row p-4 lg:p-0 gap-4 lg:gap-24 text-2xl font-light text-black ${
             isHomePage && "text-white"
           }`
         )}

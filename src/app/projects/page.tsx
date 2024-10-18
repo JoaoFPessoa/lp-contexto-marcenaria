@@ -37,7 +37,7 @@ export default function Projects() {
   return (
     <div className="bg-custom-gradient min-h-[100vh] flex overflow-x-hidden flex-col items-center">
       <Header />
-      <h1 className="text-center text-4xl font-bold my-32 w-full">
+      <h1 className="text-center text-4xl font-bold mt-56 mb-12  lg:my-32 w-full">
         nossos projetos
       </h1>
 
