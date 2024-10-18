@@ -3,62 +3,47 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 
-export const Card = React.memo(
-  ({
-    card,
-    index,
-    hovered,
-    setHovered,
-  }: {
-    card: any;
-    index: number;
-    hovered: number | null;
-    setHovered: React.Dispatch<React.SetStateAction<number | null>>;
-  }) => (
-    <div
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
-      className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-[650px] w-full transition-all duration-300 ease-out",
-        hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
-      )}
-    >
-      <img
-        src={card.src}
-        alt={card.title || card.src}
-        className="object-cover absolute inset-0"
-      />
-      <div
-        className={cn(
-          "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0"
-        )}
-      >
-        {card.title && (
-          <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
-            {card.title}
-          </div>
-        )}
-      </div>
-    </div>
-  )
-);
-
-Card.displayName = "Card";
-
-type Card = {
-  title?: string;
-  src: string;
+type CardType = {
+  id?: number;
+  public_url?: string;
+  src?: string;
 };
 
-export function FocusCards({ cards }: { cards: Card[] }) {
+export const Card = ({
+  card,
+  index,
+  hovered,
+  setHovered,
+}: {
+  card: CardType;
+  index: number;
+  hovered: number | null;
+  setHovered: React.Dispatch<React.SetStateAction<number | null>>;
+}) => (
+  <div
+    key={card.id}
+    onMouseEnter={() => setHovered(index)}
+    onMouseLeave={() => setHovered(null)}
+    className={cn(
+      "rounded-lg relative bg-gray-100  overflow-hidden h-60 md:h-[650px] w-full transition-all duration-300 ease-out",
+      hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
+    )}
+  >
+    <img
+      src={card.src ?? card.public_url}
+      alt={String(card.id)}
+      className="object-cover absolute w-full h-full inset-0"
+    />
+  </div>
+);
+
+export function FocusCards({ cards }: { cards: CardType[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
-  console.log(cards);
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-12  w-full">
       {cards.map((card, index) => (
         <Card
-          key={card.title || card.src}
+          key={card.src ?? card.public_url}
           card={card}
           index={index}
           hovered={hovered}

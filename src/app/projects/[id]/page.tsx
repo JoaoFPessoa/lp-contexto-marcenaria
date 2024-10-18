@@ -78,6 +78,7 @@ const ProjectDetails = () => {
     }
   }
 
+  console.log({ project });
   useEffect(() => {
     getProjectData();
   }, [id]);

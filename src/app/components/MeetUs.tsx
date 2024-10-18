@@ -1,62 +1,36 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import FirstEmployee from "../../../public/Employees/employee-one.jpg";
-import SecondEmployee from "../../../public/Employees/employee-two.bmp";
-import ThirdEmployee from "../../../public/Employees/employee-three.jpg";
-import FourthEmployee from "../../../public/Employees/employee-four.jpg";
-import FifthEmployee from "../../../public/Employees/employee-five.jpg";
-import SixthEmployee from "../../../public/Employees/employee-six.jpg";
 import { ArrowRightCircle, ArrowLeftCircle } from "lucide-react";
+import { fetchDailys } from "../../../supabase";
 
-const employees = [
-  {
-    src: FirstEmployee,
-    alt: "Nome1",
-    title: "Title1",
-    description: "Description1",
-  },
-  {
-    src: SecondEmployee,
-    alt: "Nome2",
-    title: "Title2",
-    description: "Description2",
-  },
-  {
-    src: ThirdEmployee,
-    alt: "Nome3",
-    title: "Title3",
-    description: "Description3",
-  },
-  {
-    src: FourthEmployee,
-    alt: "Nome4",
-    title: "Title4",
-    description: "Description4",
-  },
-  {
-    src: FifthEmployee,
-    alt: "Nome5",
-    title: "Title5",
-    description: "Description5",
-  },
-  {
-    src: SixthEmployee,
-    alt: "Nome6",
-    title: "Title6",
-    description: "Description6",
-  },
-];
+type Daily = {
+  public_url: string;
+  sort_order: number;
+  id: string;
+  isVideo: boolean;
+};
 
 export default function MeetUs() {
+  const [dailys, setDailys] = useState<Daily[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  async function getData() {
+    const response = await fetchDailys();
+    //@ts-ignore
+    setDailys(response);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const startSlide = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === employees.length - 3 ? 0 : prevIndex + 1
+        prevIndex === dailys.length - 3 ? 0 : prevIndex + 1
       );
     }, 2500);
   };
@@ -75,13 +49,13 @@ export default function MeetUs() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === employees.length - 3 ? 0 : prevIndex + 1
+      prevIndex === dailys.length - 3 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? employees.length - 3 : prevIndex - 1
+      prevIndex === 0 ? dailys.length - 3 : prevIndex - 1
     );
   };
 
@@ -104,7 +78,7 @@ export default function MeetUs() {
           className=" flex w-full gap-8 transition-transform duration-1000"
           style={{ transform: `translateX(-${(currentIndex * 100) / 3}%)` }}
         >
-          {employees.map((employee, index) => (
+          {dailys.map((daily, index) => (
             <div
               key={index}
               className={`w-1/3 flex-shrink-0 overflow-hidden ${
@@ -112,17 +86,22 @@ export default function MeetUs() {
               }`}
             >
               <div className="w-full h-[500px] relative">
-                <Image
-                  className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-125 "
-                  src={employee.src}
-                  alt={employee.alt}
-                  layout="fill"
-                />
-                {/* <div className="p-4 text-white bottom-0 w-full h-[30%] absolute z-50  text-center">
-                  <div className="absolute inset-0 bg-black -z-10 opacity-20"></div>
-                  <h2 className="text-3xl font-bold">{employee.title}</h2>
-                  <p className="text-white/80">{employee.description}</p>
-                </div> */}
+                {daily.isVideo ? (
+                  <video
+                    src={daily.public_url}
+                    autoPlay
+                    controls={false}
+                    loop
+                    muted // Add muted if you want it to autoplay without sound
+                    className="w-full h-full object-cover mb-4 rounded-lg"
+                  />
+                ) : (
+                  <img
+                    src={daily.public_url}
+                    alt={daily.id}
+                    className="w-full h-full object-cover mb-4 rounded-lg"
+                  />
+                )}
               </div>
             </div>
           ))}

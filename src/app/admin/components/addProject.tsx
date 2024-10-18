@@ -33,7 +33,7 @@ export default function AddProject({
     e.preventDefault();
 
     const loadingToastId = toast.loading(
-      "Please wait while we add your project..."
+      "Por favor, aguarde enquanto salvamos..."
     );
 
     setIsLoading(true); // Disable buttons
